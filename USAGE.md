@@ -56,6 +56,8 @@ html & css, které pak čte webový prohlížeč.
 
 ### Linux
 
+Pozor, ruby je peklo a samo se rozbiji, doporucujeme pouzivat docker.
+
 Instalace na Fedora 25:
 ```
 sudo dnf group install "C Development Tools and Libraries"
