@@ -32,6 +32,7 @@ The process is practically the same on any Linux. Only difference is build depen
 ### Install build dependencies
 
 First, install required development dependencies:
+Warning this part could by broken by smalest udpte of any ruby package. We recomand to use docker.
 
 #### Ubuntu 18.04
 
