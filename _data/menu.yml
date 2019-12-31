@@ -25,7 +25,10 @@ main:
         match: lide
       - link: /regiony/
         name: Místní sdružení
-        match: reriony
+        match: regiony
+      - link: /regiony/index2.html
+        name: Jiný rozcestník
+        match: index2
   - link: /komunalni-volby/praha2018
     name: Komunální volby
     match: komunalni-volby
