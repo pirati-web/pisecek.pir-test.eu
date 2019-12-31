@@ -37,6 +37,18 @@
         {% if rbar contains 'map' %}
           {% include right-bar/bar_map.html %}
         {% endif %}
+        {% if rbar contains 'personArticles' %}
+          {% include right-bar/bar_person_articles.html %}
+        {% endif %}
+        {% if rbar contains 'board' %}
+          {% include right-bar/bar_board.html %}
+        {% endif %}
+        {% if rbar contains 'tagArticles' %}
+          {% include right-bar/bar_tag_articles.html %}
+        {% endif %}
+        {% if rbar contains 'pageContact' %}
+          {% include right-bar/bar_page_contact.html %}
+        {% endif %}
 
         {% comment %}Allows to append custom right bars variants{% endcomment %}
         {% include right-bar/custom-bars.html rbar=rbar %}

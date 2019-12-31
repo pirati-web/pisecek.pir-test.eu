@@ -14,6 +14,9 @@ img: people/ppp.jpg # zakomentuj radek dokud není fotka
 ordclenove: 2
 mail:
   - jakub.pirat@pirati.cz
+rbar:
+  - personContact
+  - personArticles
 profiles:
   facebook: https://www.facebook.com/uzivatel.na.fb  # pokud nema, staci smazat tuto radku
   googleplus: https://plus.google.com/+uzivatel.na.googleplus
