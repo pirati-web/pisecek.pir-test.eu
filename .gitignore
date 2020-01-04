@@ -15,5 +15,7 @@ node_modules
 *DS_Store
 *.swp
 
-# https://github.com/bundler/bundler/issues/635 
-Gemfile.lock 
+# https://github.com/bundler/bundler/issues/635
+# Missing lock file now generates other problems with bundler v2, no ignore anymore, just be careful!
+# Never commit changed lockfile unless you're sure you want to do it.
+# Gemfile.lock
