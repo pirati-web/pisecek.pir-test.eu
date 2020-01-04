@@ -19,11 +19,13 @@ This theme requires following prerequisites installed:
   - [Launching the app](#launching-the-app)
   - [Using Docker](#using-docker)
   - [Conventions](#conventions)
+  - [Bundler version &amp;&amp; Gemfile.lock issues](#bundler-version-ampamp-gemfilelock-issues)
   - [Versioning](#versioning)
   - [Creating new releases and publishing them](#creating-new-releases-and-publishing-them)
   - [Trying out locally](#trying-out-locally)
   - [Missing some JavaScript fanciness?](#missing-some-javascript-fanciness)
   - [Getting help](#getting-help)
+  - [FAQ](#faq)
 
 ## Installation
 
@@ -32,6 +34,7 @@ The process is practically the same on any Linux. Only difference is build depen
 ### Install build dependencies
 
 First, install required development dependencies:
+Warning this part could by broken by smalest udpte of any ruby package. We recomand to use docker.
 
 #### Ubuntu 18.04
 
@@ -168,6 +171,15 @@ Use English for everything except parts of url and example texts.
 * URLs are written in *kebab-case*: `komunalni-volby`
 * variables are written in *lowerCamelCase*: `citiCandidatePosition`
 * uid: `jakub.pirat`
+
+## Bundler version && Gemfile.lock issues
+
+In order to run this, **you need Bundler v1.16.x, v2.x won't work**. There are also
+issues with different lock file generated on different platforms. Unfortunately, this simply is a [Bundler weakness](https://github.com/bundler/bundler/issues/635)
+and there are no workarounds. At the same time, we need `Gemfile.lock` in the version control for the Bundler version
+mismatch warnings to work.
+
+Thus, never commit changed lockfile unless you know what you're doing.
 
 ## Versioning
 
