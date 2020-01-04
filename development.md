@@ -108,7 +108,7 @@ repository directory*:
 rbenv install         # Installs Ruby version required by jekyll-theme-pirati
 nvm install           # Installs Node.js runtime and NPM version required by jekyll-theme-pirati
 
-gem install bundle          # Installs bundler
+gem install bundle:1.16     # Installs bundler
 bundle install              # Installs Ruby gems
 npm install                 # Installs build and frontend dependecies
 ```
