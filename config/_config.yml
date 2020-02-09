@@ -91,7 +91,7 @@ defaults:   # defaults values for collection scope
 emptyArray: []
 
 organization:
-  name: Jmeno skupiny používající web - př Pirástá strana
+  name: Jmeno skupiny používající web - př Pirátská strana
   shortName: Název skupiny
   email: example@pirati.cz
   phone: +420 777 123 456 789
