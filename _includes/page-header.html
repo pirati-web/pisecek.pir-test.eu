@@ -1,16 +1,9 @@
-<div class="row o-section">
-  <div class="columns large-12">
-    <header class="c-page-header">
-      <h1 itemprop="headline" class="c-page-title">{{ include.headline }}</h1>
-    </header>
+<header>
+  <h1 itemprop="headline" class="head-alt-md md:head-alt-lg max-w-5xl mb-8">{{ include.headline }}</h1>
+</header>
+
+{% if include.content %}
+  <div class="{% if include.contentClass %}{{ include.contentClass }}{% endif %}" itemprop="description">
+    {{ include.content }}
   </div>
-  {% if include.content %}
-    <div class="columns large-12">
-      <div class="{% if include.contentClass %}{{ include.contentClass }}{% endif %}">
-        <div itemprop="description" class="c-content-block c-emphasized-text">
-        	{{ include.content }}
-        </div>
-      </div>
-    </div>
-  {% endif %}
-</div>
+{% endif %}

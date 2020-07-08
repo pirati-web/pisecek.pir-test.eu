@@ -15,7 +15,7 @@ ordclenove: 2
 mail:
   - jakub.pirat@pirati.cz
 rbar:
-  - personContact
+  - profile
   - personArticles
 profiles:
   facebook: https://www.facebook.com/uzivatel.na.fb  # pokud nema, staci smazat tuto radku

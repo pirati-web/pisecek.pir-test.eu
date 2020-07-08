@@ -14,6 +14,7 @@ infoboxes:
       volutpat. Duis sapien nunc, commodo et, interdum suscipit, sollicitudin et,
       dolor. Aliquam erat volutpat. Etiam ligula pede, sagittis quis, interdum
       ultricies, scelerisque eu. Cras elementum. Vestibulum fermentum tortor id mi.</p>
+important: true
 ---
 
 Posty musí být každý ve vlastním souboru pojmenovaném datumem a nejakym nazvem, například _posts/2018-03-14-slavime-pi-day.md. Tento název se pak objeví v adrese, tedy xxx.pirati.cz/aktuality/slavime-pi-day.html.

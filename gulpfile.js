@@ -73,37 +73,19 @@ gulp.task('copyGemSpec', function () {
     .pipe(gulp.dest(GEM_BUILD_DIR));
 });
 
-// Copy Foundation framework.
-gulp.task('copyFoundation', function () {
-  return gulp
-    .src(['node_modules/foundation-sites/**/*'])
-    .pipe(gulp.dest(`${GEM_BUILD_DIR}/_sass/foundation-sites`));
-});
+// // Copy Foundation framework.
+// gulp.task('copyFoundation', function () {
+//   return gulp
+//     .src(['node_modules/foundation-sites/**/*'])
+//     .pipe(gulp.dest(`${GEM_BUILD_DIR}/_sass/foundation-sites`));
+// });
 
-// Copy over all artifacts created by Webpack.
-gulp.task('copyWebpackBundles', function () {
-  return gulp
-    .src(['_site/assets/js/**/*'])
-    .pipe(gulp.dest(`${GEM_BUILD_DIR}/assets/js`));
-});
-
-// Update `_include/js/main.html` to embed all the JS and CSS files created
-// by Webpack previously in `copyWebpackBundles`.
-gulp.task('writeManifest', function () {
-  const manifest = require('./_data/webpackManifest.json');
-
-  const writeJS = file => `<script src="/${file}"></script>`;
-  const writeCSS = file => `<link rel="stylesheet" href="/${file}" />`;
-
-  const cssFiles = manifest.manifest.css.map(writeCSS);
-  const jsFiles = manifest.manifest.js.map(writeJS);
-  const allFiles = cssFiles.concat(jsFiles).join("\n");
-
-  return gulp
-    .src([`${GEM_BUILD_DIR}/_includes/js/main.html`])
-    .pipe(replace('{% include js/webpack.html %}', allFiles))
-    .pipe(gulp.dest(`${GEM_BUILD_DIR}/_includes/js`));
-});
+// // Copy over all artifacts created by Webpack.
+// gulp.task('copyWebpackBundles', function () {
+//   return gulp
+//     .src(['_site/assets/js/**/*'])
+//     .pipe(gulp.dest(`${GEM_BUILD_DIR}/assets/js`));
+// });
 
 // Runs `gem build` command in the build directory.
 gulp.task('buildGem', function () {
@@ -115,8 +97,7 @@ gulp.task('buildGem', function () {
 gulp.task('prepareGem',
   gulp.series([
     'cleanGemDir',
-    gulp.parallel(['copyGemFiles', 'copyWebpackBundles', 'copyFoundation', 'copyGemSpec']),
-    'writeManifest',
+    gulp.parallel(['copyGemFiles', 'copyGemSpec']),
     'buildGem'
   ]));
 

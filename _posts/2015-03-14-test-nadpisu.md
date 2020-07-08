@@ -7,6 +7,7 @@ title: Test nadpisů
 author: Jmeno Prijmeni
 authorId: jakub.pirat    # uid nekoho z _people (nepoviné)
 image: posts/obrazek.u.tohoto.postu.jpg
+important: true
 ---
 
 aaa

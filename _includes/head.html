@@ -44,14 +44,14 @@
     <meta property="og:description"   content="{{ description }}" />
     {% if page.layout == 'post' %}
         {% if site.mediaStorage %}
-            {% capture imgPath %}https://a.pirati.cz/{{ site.mediaStorage }}/img/{{ include.image }}{% endcapture %}
+            {% capture img_path %}https://a.pirati.cz/{{ site.mediaStorage }}/img/{{ page.image }}{% endcapture %}
         {% else %}
             {% capture img_path %}{% asset '{{ page.image }}' @path %}{% endcapture %}
         {% endif %}
         <meta property="og:image"         content="{{ img_path | absolute_url }}" />
     {% elsif page.img %}
         {% if site.mediaStorage %}
-            {% capture imgPath %}https://a.pirati.cz/{{ site.mediaStorage }}/img/{{ include.img }}{% endcapture %}
+            {% capture img_path %}https://a.pirati.cz/{{ site.mediaStorage }}/img/{{ page.img }}{% endcapture %}
         {% else %}
             {% capture img_path %}{% asset '{{ page.img }}' @path %}{% endcapture %}
         {% endif %}
@@ -61,9 +61,7 @@
     {% endif %}
     <!-- Fonts -->
     {% if page.layout != 'blank' %}
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    {% comment %}This actually points to assets/css/main.scss{% endcomment %}
-    <link rel="stylesheet" href="{% asset 'main.css' @path !type %}">
+    <link rel="stylesheet" href="{{ site.styleguide_base_url }}/css/styles.css">
     {% endif %}
     <!-- API Mapy.cz that has to be in the header -->
     {% if page.mapycz_api %}

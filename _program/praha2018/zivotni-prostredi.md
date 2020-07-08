@@ -7,14 +7,13 @@ approved: https://forum.pirati.cz/viewtopic.php?f=349&t=41532
 img: program/psp2017/zivotni-prostredi.svg
 garant: jakub.pirat
 perex: Zdravé životní prostředí je základem pro to, aby se Pražanům dobře žilo. Budeme bojovat proti přehřívání města, znečisťování ovzduší a rušivým vlivům, které člověka nenechají v klidu spát. Politiku životního prostředí stavíme na přirozené motivaci, respektu a účasti veřejnosti.
+intro: Ulice, náměstí a parky jsou součástí našeho domova. Vnímáme je jako místa setkávání a příjemného a zdravého trávení času. Proto jejich rozvoji a údržbě věnujeme pozornost, jakou si zaslouží. Zeleň město zkrášluje a pomáhá mu, upravuje teplotu, prašnost a vlhkost. Aby nám mohla dobře sloužit, potřebuje přiměřenou péči.
 order: 2
 ---
 
-**Ulice, náměstí a parky jsou součástí našeho domova. Vnímáme je jako místa setkávání a příjemného a zdravého trávení času. Proto jejich rozvoji a údržbě věnujeme pozornost, jakou si zaslouží. Zeleň město zkrášluje a pomáhá mu, upravuje teplotu, prašnost a vlhkost. Aby nám mohla dobře sloužit, potřebuje přiměřenou péči.**
-
 ## Město pro lidi
 
-<dl class="c-program-key-point-list">
+<dl class="program-point-list">
     <dt>Přívětivé ulice.</dt>
     <dd>Ulice jsou pro nás víc než jen silnice a chodníky. Při návrzích úprav budeme vyžadovat spolupráci architektů, odborníků na dopravu, zeleň a dalších.</dd>
     <dt>Participace a architektonické soutěže.</dt>
@@ -27,7 +26,7 @@ order: 2
 
 ## Obnova a údržba zeleně
 
-<dl class="c-program-key-point-list">
+<dl class="program-point-list">
     <dt>Zeleň do každé ulice.</dt>
     <dd>V ulicích zajistíme prostor pro stromy, keře či květinové výsadby, a to jednak v rámci rekonstrukcí, jednak koordinací ukládání podzemních inženýrských sítí. Při rekonstrukcích vždy zvážíme zachování stávající zeleně.</dd>
     <dt>Plánování údržby a obnovy městské zeleně.</dt>
@@ -38,7 +37,7 @@ order: 2
 
 ## Červeňák a příroda ve městě
 
-<dl class="c-program-key-point-list">
+<dl class="program-point-list">
     <dt>Červeňák.</dt>
     <dd>Usilujeme o získání bývalého vojenského prostoru na Chrudimce do majetku města, aby zde mohl vzniknout přírodě blízký park, který bude sloužit pro každodenní rekreaci i jako pěší a cyklistická spojnice mezi Pardubičkami a Višňovkou. Někteří naši kandidáti jsou členy <a href="http://www.ppcervenak.cz/" target="_blank" title="Iniciativa Přírodní park Červeňák">Iniciativy Přírodní park Červeňák.</a></dd>
     <dt>Zelený pás podél Labe.</dt>

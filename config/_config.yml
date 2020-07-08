@@ -23,7 +23,7 @@ plugins:
   - jekyll-environment-variables
 
 paginate_path: "/aktuality/:num/"
-paginate: 11
+paginate: 12
 
 exclude:
   - README.md
@@ -76,8 +76,7 @@ defaults:   # defaults values for collection scope
     values:
       layout: "person"
       rbar:
-         - foto
-         - personContact
+         - profile
          - people
   -
     scope:
@@ -91,8 +90,8 @@ defaults:   # defaults values for collection scope
 emptyArray: []
 
 organization:
-  name: Jmeno skupiny používající web - př Pirátská strana
-  shortName: Název skupiny
+  name: Pirátská strana # Jmeno skupiny používající web - př Pirátská strana
+  shortName: Název skupiny # Kratší název skupiny
   email: example@pirati.cz
   phone: +420 777 123 456 789
   address: |
@@ -104,6 +103,10 @@ organization:
   dataBoxId: b2i4r6j
   transparentAccount: 2100048174/2010
 
+elections:
+  show: true
+  date: "2020-12-10 00:00:00"
+
 # Items listed in contact summary table
 contactSummaryItems:
   - type: organizationEmail
@@ -114,7 +117,7 @@ contactSummaryItems:
   - type: organizationDataBox
   - type: piratiRootWebsite
   - type: custom
-    iconClass: fa fa-envelope
+    iconClass: ico--pirati
     label: Vlastní řádek tabulky
     body: <a href="http://example.com">link</a>
 

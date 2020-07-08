@@ -11,12 +11,19 @@ ordclenove: 3
 description: mistr světa ve skoku pro něco # zobrazuje se v lide
 profession: knihovník
 img: people/ppp.jpg # zakomentuj radek dokud není fotka
+heroImg: posts/obrazek.u.tohoto.postu.jpg
 mail:
   - prvni.leader@pirati.cz
 profiles:
+  wikipedia: https://www.wikipedia.org
   facebook: https://www.facebook.com/uzivatel.na.fb  # pokud nema, staci smazat tuto radku
   googleplus: https://plus.google.com/+uzivatel.na.googleplus
   twitter: https://twitter.com/uzivatel.na.twitteru
+  github: https://www.github.com/uzivatel.na.fb  # pokud nema, staci smazat tuto radku
+  forum: https://forum.pirati.cz/
+  redmine: https://redmine.pirati.cz
+  web: https://www.example.com
+  blog: https://www.example.com
   flickr:		  https://www.flickr.com/search/?user_id=68741528%40N03&sort=date-taken-desc&view_all=1&text=ond%C5%99ej%20profant
 ---
 

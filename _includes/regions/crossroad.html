@@ -1,66 +1,54 @@
 
-<section class="pk-election-crossroad row u-uniform-size-row">
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
   {% for place in include.places %}
-    <div class="columns medium-6">
-      <article class="pk-election-crossroad__place">
-        <div class="c-tile c-tile--fill pk-election-crossroad__place-body">
-          <div class="pk-election-crossroad__coa"><img src="{{ place.coa }}" alt="{{ place.locality }}"></div>
-          <div class="c-tile__body">
-            <h2 class="t-h4">{{ place.locality }}</h2>
+    <article class="card elevation-0 bg-grey-50 container-padding--zero md:container-padding--auto">
+      <div class="card__body p-4 lg:p-8 flex space-x-8 items-start">
+        <img src="{{ place.coa }}" class="w-16" alt="{{ place.locality }}" />
+        <div class="space-y-4 flex-grow">
+          <div>
+            <h1 class="head-alt-base mb-2">
+              {% if place.link %}<a href="{{ place.link }}">{% endif %}{{ place.locality }}{% if place.link %}</a>{% endif %}
+            </h1>
+            <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+              {% if place.fb %}
+                {% capture caption %}place.fb | remove:"https://www.facebook.com"{% endcapture %}
+                {% include contact-line.html href=place.fb target="_blank" icon="ico--facebook" caption=caption class="font-light" %}
+              {% endif %}
 
-	    {% if place.note %}
-	    <p>{{ place.note }}</p>
-	    {% endif %}
+              {% if place.mail %}
+                {% capture href %}mailto:{{ place.mail }}{% endcapture %}
+                {% include contact-line.html href=href icon="ico--envelope" caption=place.mail class="contact-line--responsive font-light" %}
+              {% endif %}
 
-	    {% if place.link %}
-	    <div class="pk-election-crossroad__link">
-		    <span class="fa fa-globe"></span> <a href="{{ place.link }}" class="c-emphasized-anchor" target="_blank" rel="noopener">Web</a>
-	    </div>
-	    {% endif %}
-	    {% if place.fb %}
-	    <div class="pk-election-crossroad__link">
-		    <span class="fa fa-facebook"></span> 
-            <a href="{{ place.fb }}" class="c-emphasized-anchor" target="_blank" rel="noopener">
-                {{ place.fb | remove: "https://www.facebook.com/" }}
-            </a>
-	    </div>
-	    {% endif %}
-        <br/>
-	    {% if place.kontakt %}
-	    <div class="pk-election-crossroad__link">
-            {% assign contactPerson = site.people | where: "uid", place.kontakt | first %}
-		    <span class="fa fa-user"></span> 
-            <a href="{{ contactPerson.url }}" class="c-emphasized-anchor" target="_blank" rel="noopener">
-                {{ contactPerson.name }} 
-            </a>
-	    </div>
-	    {% endif %}
-	    {% if place.mail %}
-	    <div class="pk-election-crossroad__link">
-		    <span class="fa fa-envelope-o"></span> 
-            <a href="mailto:{{ place.mail }}" class="c-emphasized-anchor" target="_blank" rel="noopener">
-                 {{ place.mail }}</a>
-            </a>
-	    </div>
-	    {% endif %}
-	    {% if place.programLink %}
-	    <div class="pk-election-crossroad__link">
-		    <span class="fa fa-book"></span> <a href="{{ place.programLink }}" class="c-emphasized-anchor" target="_blank" rel="noopener">Program</a>
-	    </div>
-	    {% endif %}
-	    {% if place.candidateListLink %}
-	    <div class="pk-election-crossroad__link">
-		    <span class="fa fa-users"></span> <a href="{{ place.candidateListLink }}" class="c-emphasized-anchor" target="_blank" rel="noopener">Kandidátka</a>
-	    </div>
-	    {% endif %}
-	    {% if place.candidateListWithProgramLink %}
-	    <div class="pk-election-crossroad__link">
-		    <span class="fa fa-book"></span> <a href="{{ place.candidateListWithProgramLink | relative_url }}" class="c-emphasized-anchor">Program a kandidátka</a>
-	    </div>
-	    {% endif %}
+              {% if place.programLink %}
+                {% include contact-line.html href=place.programLink target="_blank" icon="ico--book" caption="Program" class="font-light" %}
+              {% endif %}
+
+              {% if place.candidateListLink %}
+                {% include contact-line.html href=place.candidateListLink target="_blank" icon="ico--users" caption="Kandidátka" class="font-light" %}
+              {% endif %}
+
+              {% if place.candidateListWithProgramLink %}
+                {% include contact-line.html href=place.candidateListWithProgramLink target="_blank" icon="ico--book" caption="Program" class="font-light" %}
+              {% endif %}
+            </div>
+            {% if place.note %}
+              <p class="mt-2 font-light text-sm leading-snug">{{ place.note }}</p>
+            {% endif %}
           </div>
+          {% if place.kontakt %}
+            {% assign contactPerson = site.people | where: "uid", place.kontakt | first %}
+            {% include people/profile-badge.html item=contactPerson hideAvatar=true showDescription=false class="badge--condensed" %}
+          {% endif %}
         </div>
-      </article>
-    </div>
+        {% if place.link %}
+          <div class="hidden md:block">
+            <a href="{{ place.link }}" class="no-underline hover:no-underline">
+              <i class="ico--chevron-right text-3xl"></i>
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </article>
   {% endfor %}
 </section>

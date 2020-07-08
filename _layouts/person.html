@@ -1,30 +1,40 @@
 ---
-layout: blank-article
+layout: default
 ---
 
-<div class="c-emphasized-text c-person">
-  {% capture headline %}{% include people/fullname.html person=page %}{% endcapture %}
-  {% include page-header.html headline=headline content=content contentClass='c-person__content' %}
-</div>
-	
-{% if page.calendar %}
-<div class="row">
-  <div class="medium-12 large-12 columns">
-    <section class="o-section o-section--noSpaceBottom">
-      <div class="o-section-inner">
-        <div class="c-BasicPage">
-          <div class="c-BasicPage">
-            <div class="c-BasicPage-content">
-              <div class="c-BasicPage-header c-BasicPage-header--horizontal c-BasicPage-header--horizontal--mobilestacked">
-                <h1 class="c-BasicPage__title" id="praha"> Kalendář</h1>
-              </div>
-            </div>
-          </div>
-	  <iframe src="https://calendar.google.com/calendar/embed?src={{page.calendar}}&ctz=Europe%2FPrague" style="border: 0" width="770" height="600" frameborder="0" scrolling="no"></iframe>
-        </div>
-      </div>
-    </section>
-    <!-- /. o-section -->
-  </div>
-</div>
+{% if page.heroImg %}
+  {% if site.mediaStorage %}
+      {% capture imgPath %}https://a.pirati.cz/{{ site.mediaStorage }}/img/{{ page.heroImg }}{% endcapture %}
+  {% else %}
+      {% capture imgPath %}{% asset '{{ page.heroImg }}' @path %}{% endcapture %}
+      {% assign imgPath = imgPath | absolute_url %}
+  {% endif %}
 {% endif %}
+
+{% capture personName %}{% include people/fullname.html person=page %}{% endcapture %}
+
+<header class="hero hero--image pt-24 pb-24 lg:pt-32 pb-24 candidate-detail__hero" style="{% if imgPath %}--image-url: url({{ imgPath }}){% else %}background: linear-gradient(var(--color-cyan-500),var(--color-cyan-500)){% endif %}">
+  <div class="container container--default text-center lg:text-left">
+    <h1 class="head-alt-md md:head-alt-xl max-w-2xl">{{ personName }}</h1>
+    {% if page.description %}
+      <h2 class="head-xs mt-2 max-w-xl">{{ page.description }}</h2>
+    {% endif %}
+  </div>
+</header>
+
+<div class="container container--default py-8 lg:pb-24">
+  <main>
+    <div class="flex flex-col lg:flex-row lg:space-x-8 xl:space-x-16">
+      <section class="lg:w-3/5 xl:w-2/3">
+        <div class="content-block w-full">
+          {{ content }}
+        </div>
+      </section>
+      <section class="lg:w-2/5 xl:w-1/3 pt-8 lg:pt-0 order-first lg:order-last candidate-detail__sidebar">
+        {% include right-bar/rbar.html cardBodyClass="p-4 lg:p-8" %}
+        <!-- Mobile divider -->
+        <hr class="block lg:hidden" />
+      </section>
+    </div>
+  </main>
+</div>

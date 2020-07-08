@@ -1,13 +1,13 @@
 top:
   - link: "pirati.cz"
     url:  "https://www.pirati.cz"
-    icon: "fa fa-home"
+    icon: "ico--home"
   - link: "wiki.pirati.cz"
-    url:  "https://wiki.pirati.cz"
-    icon: "fa fa-home"
+    url:  "https://piratskyobchod.cz"
+    icon: "ico--cart"
   - link: "Pirátské listy"
     url:  "http://www.piratskelisty.cz"
-    icon: "fa fa-newspaper-o"
+    icon: "ico--newspaper"
 
 main:
   - link: /
@@ -66,15 +66,9 @@ bottom:
         name: Volby
       - link: /aktuality/
         name: Aktuality
-  - class: small-12 medium-4
-    title: Otevřenost
-    links:
-      - link: https://ucet.pirati.cz
-        name: Transparentní účet
-      - link: https://smlouvy.pirati.cz
-        name: Registr smluv
-      - link: https://wiki.pirati.cz/fo/otevrene_ucetnictvi
-        name: Otevřené účetnictví
+
+# Display transparency section in the footer?
+transparencySection: true
 
 contact:
   - id: jakub.pirat

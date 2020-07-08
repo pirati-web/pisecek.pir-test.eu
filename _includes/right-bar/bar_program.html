@@ -3,30 +3,25 @@
 {% endif %}
 
 {% if campaignGroup %}
-<div class="o-section-block--spaceBot show-for-large">
-    <ul class="c-widget-accordion" data-accordion="" data-allow-all-closed="true">
-        <li class="c-widget-accordion-item is-active" data-accordion-item="">
-            <a href="#toc" class="c-widget-accordion-link">
-                <span class="c-widget-accordion__title">{{ campaignGroup.title }}</span>
-            </a>
-            <div class="c-widget-accordion-content" data-tab-content="" id="toc">
-                {% for campaign in campaignGroup.campaigns %}
-                <h3 class="t-h5">{{ campaign.title }}</h3>
-                <ul class="c-widget-accordion-list">
-                    <ul>
-                        {% assign programSections = site.program | where: "campaignCategoryUid", campaign.categoryUid | sort:"order" %}
-                        {% for programSection in programSections %}
-                        <li><a class="c-emphasized-anchor {% if page.uid == programSection.uid %}active{% endif %}" href="{{ programSection.url | relative_url }}">{{ programSection.title }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </ul>
-                {% endfor %}
+<div class="content-block">
+  <h2>{{ campaignGroup.title }}</h2>
 
-                {% comment %}Allows to add custom content to program rbar{% endcomment %}
-                {% include right-bar/program-extras.html %}
-            </div>
-        </li>
+  {% for campaign in campaignGroup.campaigns %}
+    {% assign programSections = site.program | where: "campaignCategoryUid", campaign.categoryUid | sort:"order" %}
+
+    <h3>{{ campaign.title }}</h3>
+
+    <ul class="unordered-list unordered-list--linked">
+      {% for programSection in programSections %}
+        <li><a {% if page.uid == programSection.uid %}class="font-bold"{% endif %} href="{{ programSection.url | relative_url }}">{{ programSection.title }}</a></li>
+      {% endfor %}
     </ul>
+    {% unless forloop.last %}
+      <hr>
+    {% endunless %}
+  {% endfor %}
 
+  {% comment %}Allows to add custom content to program rbar{% endcomment %}
+  {% include right-bar/program-extras.html %}
 </div>
 {% endif %}

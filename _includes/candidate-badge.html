@@ -1,27 +1,51 @@
-<div class="c-program-candidate-badge">
-  <a class="c-program-candidate-badge__body" href="{{ include.candidatePage.url | relative_url }}">
-      <span class="c-program-candidate-badge__rank"><span>{{ include.rank }}</span></span>
-      <div class="c-program-candidate-badge__avatar">
-          {% if include.candidatePage.img %}
-            {% if site.mediaStorage %}
-                {% capture img %}https://a.pirati.cz/resize/225x225/{{ site.mediaStorage }}/img/{{ include.candidatePage.img }}{% endcapture %}
-            {%- else -%}
-                {% capture img %}{% asset '{{ include.candidatePage.img }}' magick:resize='225x225^' magick:gravity='center' magick:crop='225x225+0+0' @path %}{% endcapture %}
-            {%- endif -%}
-          {% else %}
-            {% capture img %}https://a.pirati.cz/common/img/people/unknown-pirate.svg{% endcapture %}
-          {% endif %}
-          <img src="{{ img }}" alt="{% include people/fullname.html person=include.candidatePage plain=true %}" class="c-program-candidate-badge__avatar-image">
+<div class="candidate-card container-padding--zero sm:container-padding--auto {{ include.class }}">
+  <div class="candidate-card__wrapper {{ include.wrapperClass }}">
+    <div class="card candidate-card__body elevation-0 hover:elevation-10 transition duration-200">
+      <div class="candidate-card__avatar">
+        <div class="candidate-card__position">{{ include.rank }}</div>
+
+        {% if include.candidatePage.img %}
+          {% if site.mediaStorage %}
+              {% capture img %}https://a.pirati.cz/resize/225x225/{{ site.mediaStorage }}/img/{{ include.candidatePage.img }}{% endcapture %}
+          {%- else -%}
+              {% capture img %}{% asset '{{ include.candidatePage.img }}' magick:resize='225x225^' magick:gravity='center' magick:crop='225x225+0+0' @path %}{% endcapture %}
+          {%- endif -%}
+        {% else %}
+          {% capture img %}https://a.pirati.cz/common/img/people/unknown-pirate.svg{% endcapture %}
+        {% endif %}
+
+        {% capture img_alt %}{% include people/fullname.html person=include.candidatePage plain=true %}{% endcapture %}
+        {% include avatar.html url=include.candidatePage.url class="avatar--sm sm:avatar--lg" src=img alt=img_alt %}
       </div>
-      <div class="c-program-candidate-badge__description">
-          <h4 class="c-program-candidate-badge__name"><span class="c-headline-anchor">{% include people/fullname.html person=include.candidatePage %}</span></h4>
-          <strong class="c-program-candidate-badge__profession">
-              {% if include.candidate.age %} {{ include.candidate.age }} let, {% endif %}
-              {{ include.candidate.profession }}{% if include.candidate.party %}, {{ include.candidate.party }} {% endif %}
-          </strong>
-          {% if include.candidate.description %}
-          <p class="c-program-candidate-badge__bio">{{ include.candidate.description }}</p>
-          {% endif %}
+      <div class="candidate-card__bio">
+        <h1 class="head-heavy-xs">
+          <a href="{{ include.candidatePage.url|relative_url }}">{% include people/fullname.html person=include.candidatePage %}</a>
+        </h1>
+        {% if include.candidatePage.mail %}
+          <div class="font-light mb-4">{{ include.candidatePage.mail }}</div>
+        {% endif %}
+        <h2 class="head-allcaps-4xs md:head-allcaps-3xs">{{ include.candidate.profession }}</h2>
       </div>
-  </a>
+      <div class="candidate-card__affiliation">
+        {% if include.candidate.age %}<div>{{ include.candidate.age }} let</div>{% endif %}
+
+        {% if include.candidate.party %}
+          <div>
+            {% if include.candidate.partyImg %}
+              {% comment %}We expect an SVG format here to make things scalable{% endcomment %}
+              {% capture partyImg %}{{ include.candidate.partyImg | prepend: "/assets/img/" | absolute_url }}{% endcapture %}
+              {% include avatar.html class="w-6 mr-2" alt=include.candidate.party src=partyImg %}
+            {% endif %}
+            <span class="font-bold font-condensed">{{ include.candidate.party }}</span>
+          </div>
+        {% endif %}
+      </div>
+      <div class="card__body candidate-card__social">
+        {% if include.candidate.description %}
+          <p class="font-light text-sm leading-snug italic mb-4 hidden md:block">{{ include.candidate.description }}</p>
+        {% endif %}
+        {% comment %} {{> molecules-basic-social-icon-group }} {% endcomment %}
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,16 +1,17 @@
-<div class="row c-hp-banner">
-  <div class="small-12 columns">
-    <a href="{{ include.link }}" title="{{ include.title }}" class="c-hp-banner__link">
-      {% capture img %}{% asset '{{ include.default }}' magick:resize='1135x' @path %}{% endcapture %}
-      {% if include.breakpoint %}
-        <picture class="c-hp-banner__media">
-          <source media="(min-width: {{ include.breakpoint }}px)" srcset="{{ img }}">
-          <img src="{% asset '{{ include.mobile }}' magick:resize='{{ include.breakpoint +"px" }}' @path %}" alt="{{ include.title }}">
-        </picture>
-      {% else %}
-        <img src="{{ img }}" alt="{{ include.title }}"  class="c-hp-banner__media">
-      {% endif %}
-    </a>
+<article class="hero py-8 lg:py-16 {{ include.class }}">
+  <div class="container container--default grid {% if include.img %}lg:grid-rows-3 lg:grid-cols-7{% else %}lg:grid-rows-2 lg:grid-cols-1{% endif %} gap-2 items-center">
+    <div class="{% if include.img %}lg:row-span-2 lg:col-span-3{% else %}lg:row-span-1 lg:col-span-1{% endif %} order-1">
+      <h1 class="head-alt-md md:head-alt-xl">{{ include.title }}</h1>
+    </div>
+    <div class="lg:row-span-1 {% if include.img %}lg:col-span-3{% else %}lg:col-span-1{% endif %} order-3">
+      <div class="mt-4 md:mt-8 space-y-4">
+        {% include buttons/icon.html icon="ico--chevron-right" class="btn--hoveractive btn--fullwidth md:btn--autowidth text-lg" cta=include.cta %}
+      </div>
+    </div>
+    {% if include.img %}
+      <div class="lg:row-span-3 lg:col-span-4 order-2">
+        {% asset '{{ include.img }}' magick:resize='900x' alt=include.title %}
+      </div>
+    {% endif %}
   </div>
-</div>
-
+</article>

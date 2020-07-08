@@ -1,139 +1,110 @@
-<a href="{{ site.github.url }}edit/{{ site.github.branch }}/{{ page.path }}" class="c-suggest-improvement show-for-medium hide-for-print">
-  <i class="fa fa-pencil"></i>
-  Navrhni úpravu
-</a>
-
-<footer class="o-section o-section--darker o-section--bigger u-inverted u-cf">
-  <div class="o-section-inner">
-    <div class="row">
-      <div class="medium-12 large-3 u-stacked--medium-down u-center--medium-down columns">
-        <img src="/assets/img/brand/logo_napis_white.svg" alt='Česká pirátská strana' class="logo u-center-medium-down u-stacked">
-        <p class="u-noWrap u-stacked u-smaller-line-height show-for-large">
-          <span class="u-mirror-horizontally">&copy;</span> Piráti, {{ site.time | date: '%Y' }}. Všechna práva vyhlazena.
-          <br>Sdílejte a nechte ostatní sdílet za stejných
-          <br>podmínek.
-      </div>
-      <div class="medium-12 large-6 u-stacked--medium-down u-center--medium-down columns show-for-medium">
-        <div class="row">
+<footer class="footer bg-grey-700 text-white __js-root">
+  <ui-app inline-template>
+    <div>
+      <div class="footer__main py-4 lg:py-16 container container--default">
+        <section class="footer__brand">
+          <img src="{{ site.styleguide_base_url }}/images/logo-full-white.svg" alt="Pirátská strana" class="w-32 md:w-40 pb-6" />
+          <p class="para hidden md:block md:mb-4 lg:mb-0 text-grey-200">
+            Piráti, {{ site.time | date: '%Y' }}. Všechna práva vyhlazena.
+            Sdílejte a nechte ostatní sdílet za stejných podmínek.
+          </p>
+        </section>
+        <section class="footer__main-links bg-grey-700 text-white lg:grid grid-cols-3 gap-4">
           {% for linkGroup in site.data.menu.bottom %}
-            <div class="columns {{ linkGroup.class }}">
-                <nav class="c-vertical-navigation u-center---medium-down">
-                  {% if linkGroup.title %}
-                    <h3 class="c-vertical-navigation__title">{{ linkGroup.title }}</h3>
-                  {% endif %}
-                  <ul class="c-vertical-navigation-items">
-                    {% for linkGroupItem in linkGroup.links %}
-                    <li class="c-vertical-navigation__item">
+            <div class="{% if forloop.first %}pt-8 pb-4 lg:py-0{% else %}py-4 lg:py-0 border-t border-grey-400 lg:border-t-0{% endif %}">
+              <ui-footer-collapsible label="{{ linkGroup.title }}">
+                <ul class="mt-6 space-y-2 text-grey-200">
+                  {% for linkGroupItem in linkGroup.links %}
+                    <li>
                       <a href="{{ linkGroupItem.link }}">{{ linkGroupItem.name }}</a>
                     </li>
-                    {% endfor %}
-                  </ul>
-                </nav>
+                  {% endfor %}
+                </ul>
+              </ui-footer-collapsible>
             </div>
           {% endfor %}
-        </div>
-      </div>
-      <div class="medium-12 large-3 u-stacked--medium-down columns u-center--medium-down">
-        <nav class="c-vertical-navigation u-stacked">
-          <h3 class="c-vertical-navigation__title">Buďte s námi v síti</h3>
-          <ul class="c-vertical-navigation-items c-vertical-navigation-items--horizontal">
-            {% if site.facebook.profilePage %}
-            <li class="c-vertical-navigation__item">
-              <a href="{{ site.facebook.profilePage }}" rel="noopener noreferrer" title="Facebook - {{ site.organization.shortName }}">
-                <i class="fa fa-facebook c-icon c-icon--big" aria-hidden="true"></i>
-              </a>
-            </li>
+        </section>
+        <section class="footer__social lg:text-right">
+          <div class="mb-4">
+            {% include social-icon-group.html class="space-x-2 text-white pb-4" %}
+            {% if site.organization.email %}
+              {% include contact-line.html href=site.organization.email icon="ico--envelope" caption="Dejte nám vědět" %}
             {% endif %}
-            {% if site.twitter.profile %}
-            <li class="c-vertical-navigation__item">
-              <a href="https://www.twitter.com/{{ site.twitter.profile }}" rel="noopener noreferrer" title="Twitter - {{ site.organization.shortName }}">
-                <i class="fa fa-twitter c-icon c-icon--big" aria-hidden="true"></i>
-              </a>
-            </li>
-            {% endif %}
-            {% if site.instagram.profilePage %}
-            <li class="c-vertical-navigation__item">
-              <a href="{{ site.instagram.profilePage }}" rel="noopener noreferrer" title="Instagram - {{ site.organization.shortName }}">
-                <i class="fa fa-instagram c-icon c-icon--big" aria-hidden="true"></i>
-              </a>
-            </li>
-            {% endif %}
-            {% if site.gplus.profilePage %}
-            <li class="c-vertical-navigation__item">
-              <a href="{{ site.gplus.profilePage }}" rel="noopener noreferrer" title="Google Plus - {{ site.organization.shortName }}">
-                <i class="fa fa-google-plus c-icon c-icon--big" aria-hidden="true"></i>
-              </a>
-            </li>
-            {% endif %}
-          </ul>
-        </nav>
-        <p class=" u-stacked u-maxWidth80percent u-smaller-line-height hide-for-large">
-          <span class="u-mirror-horizontally">&copy;</span> Piráti, {{ site.time | date: '%Y' }}. Všechna práva vyhlazena.
-          <br> Sdílejte a nechte ostatní sdílet za stejných podmínek.
-      </div>
-    </div>
-  </div>
-</footer>
-
-{% if site.data.menu.contact %}
-    <aside class="o-section o-section--bigger c-contact-bar u-inverted u-center--medium-down show-for-medium">
-      <div class="o-section-inner">
-        <div class="row">
-          <div class="small-12 columns">
-            <header class="c-contact-bar-header u-stacked--medium-down">
-              <h3 class="c-contact-bar__heading"> <a href="{{ '/kontakt/' | relative_url }}">Kontakt</a> </h3>
-            </header>
-
-            {% for contact in site.data.menu.contact %}
-            {% assign person = site.people | where_exp:"item","item.uid contains contact.id" | first %}
-            <ul class="c-contact-bar-items u-stacked--medium-down">
-              <li class="c-contact-bar__item u-stacked--medium-down">
-                {% if contact.position %}
-                <div class="c-contact-bar__section"> {{ contact.position }} </div>
-                {% endif %}
-                <div class="c-contact-bar__description"> 
-                  <a href="{{ person.url }}">{{ person.name }}</a>, 
-                  <a href="mailto:{{ person.mail }}">{{ person.mail }}</a>
+          </div>
+          <div class="flex flex-col md:flex-row lg:flex-col lg:items-end space-y-2 md:space-y-0 md:space-x-2 lg:space-x-0 lg:space-y-2">
+            <a href="https://dary.pirati.cz" rel="noopener noreferrer" target="_blank" class="btn btn--icon btn--cyan-200 btn--hoveractive text-lg btn--fullwidth sm:btn--autowidth">
+              <div class="btn__body-wrap">
+                <div class="btn__body ">Přispěj</div>
+                <div class="btn__icon ">
+                  <i class="ico--pig"></i>
                 </div>
-              </li>
-            </ul>
-            {% endfor %}
+              </div>
+            </a>
+
+            <a href="https://nalodeni.pirati.cz" rel="noopener noreferrer" target="_blank" class="btn btn--icon btn--blue-300 btn--hoveractive text-lg btn--fullwidth sm:btn--autowidth">
+              <div class="btn__body-wrap">
+                <div class="btn__body ">Naloď se</div>
+                <div class="btn__icon ">
+                  <i class="ico--anchor"></i>
+                </div>
+              </div>
+            </a>
 
           </div>
-        </div>
+        </section>
       </div>
-    </aside>
-{% else %}
-{% assign contactPerson = site.people | where_exp: "item","item.uid contains site.organization.contactUid" | first %}
-{% assign contactPersons = site.people | where_exp: "item","item.category contains 'kontaktni_osoba'" | sort:"ordpak" %}
-{% unless contactPersons == empty or contactPersons == blank or contactPersons == nil %}
-<aside class="o-section o-section--bigger c-contact-bar u-inverted u-center--medium-down show-for-medium">
-  <div class="o-section-inner">
-    <div class="row">
-      <div class="small-12 columns">
-        <header class="c-contact-bar-header u-stacked--medium-down">
-          <h3 class="c-contact-bar__heading"> <a href="{{ '/kontakt/' | relative_url }}">Kontakt</a> </h3>
-        </header>
 
-        {% for person in contactPersons %}
-	<ul class="c-contact-bar-items u-stacked--medium-down">
-          <li class="c-contact-bar__item u-stacked--medium-down">
- 	    {% if person.contactType %}
-        <div class="c-contact-bar__section"> {{ person.contactType }} </div>
+      {% if site.data.menu.transparencySection %}
+        <section class="footer__sub-links lg:border-t border-grey-400">
+          <div class="container container--default">
+            <ui-footer-collapsible label="Otevřenost" labelClass="lg:w-1/4" wrapperClass="flex flex-col lg:flex-row lg:space-x-4 lg:items-center py-4 lg:py-8 border-t border-grey-400 lg:border-t-0" slotWrapperclass="lg:w-2/4">
+              <ul class="lg:w-full lg:pr-8 grid grid-cols-1 lg:grid-cols-3 lg:gap-4 items-center mt-6 space-y-2 lg:mt-0 lg:space-y-0 text-grey-200">
+                <li class="w-full">
+                  <a href="https://ucet.pirati.cz" rel="noreferrer noopener" target="_blank">Transparentní účet</a>
+                </li>
+                <li class="w-full">
+                  <a href="https://smlouvy.pirati.cz" rel="noreferrer noopener" target="_blank">Registr smluv</a>
+                </li>
+                <li class="w-full">
+                  <a href="https://wiki.pirati.cz/fo/otevrene_ucetnictvi" rel="noreferrer noopener" target="_blank">Otevřené účetnictví</a>
+                </li>
+              </ul>
+            </ui-footer-collapsible>
+          </div>
+        </section>
+      {% endif %}
+
+      <section class="bg-black py-4 lg:py-12">
+        <div class="container container--default">
+          <div class="footer-contacts flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-4">
+            {% if site.data.menu.contact %}
+              {% for contact in site.data.menu.contact %}
+                {% assign person = site.people | where_exp:"item","item.uid contains contact.id" | first %}
+                {% include people/profile-badge.html item=person description=contact.position %}
+              {% endfor %}
+            {% else %}
+              {% assign contactPerson = site.people | where_exp: "item","item.uid contains site.organization.contactUid" | first %}
+              {% assign contactPersons = site.people | where_exp: "item","item.category contains 'kontaktni_osoba'" | sort:"ordpak" %}
+              {% unless contactPersons == empty or contactPersons == blank or contactPersons == nil %}
+                {% for person in contactPersons %}
+                  {% include people/profile-badge.html item=person %}
+                {% endfor %}
+              {% endunless %}
             {% endif %}
-            <div class="c-contact-bar__description"> 
-              <a href="{{ person.url }}">{{ person.name }}</a>, 
-              <a href="mailto:{{ person.mail }}">{{ person.mail }}</a>
-            </div>
-          </li>
-        </ul>
-        {% endfor %}
 
-      </div>
+            {% if site.organization.email %}
+              <div class="lg:mt-4 xl:mt-0 lg:text-center xl:text-right">
+                <a href="mailto:{{ site.organization.email }}" class="btn btn--white btn--hoveractive btn--fullwidth md:btn--autowidth text-lg btn--to-grey-125">
+                  <div class="btn__body ">Kontakt</div>
+                </a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </section>
     </div>
-  </div>
-</aside>
-{% endunless %}
-{% endif %}
+  </ui-app>
+</footer>
 
-<div class="__vue-root" data-app="ScrollTop"></div>
+
+

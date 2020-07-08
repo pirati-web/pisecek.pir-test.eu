@@ -1,8 +1,5 @@
-{% comment %}
-This whole include will be overwritten by built JS files when publishing the
-theme Gem.
-{% endcomment %}
-{% include js/webpack.html %}
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js"></script>
+<script src="{{ site.styleguide_base_url }}/js/main.bundle.js"></script>
 
 {% if site.facebook.loadSDK %}
 <script>

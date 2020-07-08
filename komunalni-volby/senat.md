@@ -1,6 +1,8 @@
 ---
 layout: communal-elections
 title: Senátní volby
+img: posts/obrazek.u.tohoto.postu.jpg
+campaignGroupUid: volby-2018
 campaignCategoryUid: senat
 candidateListUid: senat
 ---
