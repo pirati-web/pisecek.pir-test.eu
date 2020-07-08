@@ -45,6 +45,9 @@ main:
   - link: /pripoj-se/
     name: Připoj se
     match: pripoj-se
+  - link: /piratske-centrum/
+    name: Piratské centrum
+    match: piratske-centrum
   - link: /kontakt/
     name: Kontakt
     match: kontakt
