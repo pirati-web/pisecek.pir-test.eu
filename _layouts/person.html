@@ -9,18 +9,18 @@ layout: default
       {% capture imgPath %}{% asset '{{ page.heroImg }}' @path %}{% endcapture %}
       {% assign imgPath = imgPath | absolute_url %}
   {% endif %}
+{% elsif page.img %}
+  {% if site.mediaStorage %}
+      {% capture imgPath %}https://a.pirati.cz/{{ site.mediaStorage }}/img/{{ page.img }}{% endcapture %}
+  {% else %}
+      {% capture imgPath %}{% asset '{{ page.img }}' @path %}{% endcapture %}
+      {% assign imgPath = imgPath | absolute_url %}
+  {% endif %}
 {% endif %}
 
 {% capture personName %}{% include people/fullname.html person=page %}{% endcapture %}
 
-<header class="hero hero--image pt-24 pb-24 lg:pt-32 pb-24 candidate-detail__hero" style="{% if imgPath %}--image-url: url({{ imgPath }}){% else %}background: linear-gradient(var(--color-cyan-500),var(--color-cyan-500)){% endif %}">
-  <div class="container container--default text-center lg:text-left">
-    <h1 class="head-alt-md md:head-alt-xl max-w-2xl">{{ personName }}</h1>
-    {% if page.description %}
-      <h2 class="head-xs mt-2 max-w-xl">{{ page.description }}</h2>
-    {% endif %}
-  </div>
-</header>
+{% include hero/simple.html headline=personName description=page.description descriptionClass="max-w-xl" heroSpacing="pt-24 pb-24 lg:pt-32 pb-24" class="candidate-detail__hero" bgImg=imgPath %}
 
 <div class="container container--default py-8 lg:pb-24">
   <main>
