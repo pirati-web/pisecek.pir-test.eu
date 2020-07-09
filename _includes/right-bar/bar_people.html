@@ -6,7 +6,7 @@
 <div class="space-y-4">
   {% assign persons = site.people | sample:3 %}
   {% for person in persons %}
-    {% include people/profile-badge.html item=person style='card' showContactInfo=false class='c-profile-badge--stacked c-profile-badge--bottomalign' headlineClass='t-h6-super' %}
+    {% include people/profile-badge.html item=person style='card' showContactInfo=false %}
   {% endfor %}
 </div>
 
