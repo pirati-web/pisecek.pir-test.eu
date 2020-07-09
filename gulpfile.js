@@ -104,7 +104,7 @@ gulp.task('prepareGem',
 // Upload the gem file to the RubyGems repository.
 gulp.task('upload', function () {
   // Gemfile name will match the version in the package.json.
-  const gemFileName = `${packageFile.name}-${packageFile.version}.gem`;
+  const gemFileName = `${packageFile.name}-${packageFile.version.replace("-alpha", ".pre.alpha")}.gem`;
   const shellCommand = `cd ${GEM_BUILD_DIR} && gem push ${gemFileName}`;
   return run(shellCommand, {verbosity: 3}).exec();
 });
