@@ -4,7 +4,7 @@
 
 {% capture subContent %}
   {% if include.cta %}
-    {% include buttons/icon.html icon="ico--chevron-right" class="btn--hoveractive btn--fullwidth md:btn--autowidth text-lg" cta=include.cta %}
+    {% include buttons/icon.html href=include.href icon="ico--chevron-right" class="btn--hoveractive btn--fullwidth md:btn--autowidth text-lg" cta=include.cta %}
   {% endif %}
 {% endcapture %}
 

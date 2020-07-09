@@ -35,7 +35,7 @@ layout: default
       {% endcapture %}
       {% include hero/advanced.html img=page.img bgImg=imgBgPath mainContent=mainContent subContent=content contentClass="content-block" imgClass="h-32 lg:h-80 lg:m-auto hidden md:block" %}
 
-      <div class="container container--default pt-8 lg:py-24">
+      <div class="container container--default pt-8 {% unless group.subLinks %}pb-8{% endunless %} lg:py-24">
 
         {% if programCategories.size > 0 %}
           <div class="text-center">
