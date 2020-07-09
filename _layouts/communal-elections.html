@@ -15,27 +15,25 @@ layout: default
   {% endif %}
 {% endif %}
 
+{% if page.heroBgImg %}
+  {% if site.mediaStorage %}
+      {% capture imgBgPath %}https://a.pirati.cz/{{ site.mediaStorage }}/img/{{ page.heroBgImg }}{% endcapture %}
+  {% else %}
+    {% capture imgBgPath %}{% asset '{{ page.heroBgImg }}' @path %}{% endcapture %}
+    {% assign imgBgPath = imgBgPath | absolute_url %}
+  {% endif %}
+{% endif %}
+
 <div class="__js-root">
   <ui-view-provider inline-template :initial="{candidates: true, program: false}" v-slot="{ isCurrentView, toggleView }">
     <main>
-      <article class="hero {% if imgPath %}hero--image{% endif %} py-16" {% if imgPath %}style="--image-url: url({{ imgPath }}){% endif %}">
-        <div class="container container--default grid lg:grid-rows-3 {% if page.candidateBadgeImg %}lg:grid-cols-7{% endif %} gap-2 items-center">
-          <div class="lg:row-span-2 lg:col-span-3 order-1">
-            {% if candidates.number %}
-              <div class="flag bg-violet-400 text-white head-alt-base mb-6">Volte č. {{ candidates.number }}</div>
-            {% endif %}
-            <h1 class="head-alt-md md:head-alt-xl">{{ page.title }}</h1>
-          </div>
-          <div class="lg:row-span-1 lg:col-span-3 order-3">
-            <div class="content-block">{{ content }}</div>
-          </div>
-          {% if page.candidateBadgeImg %}
-          <div class="lg:row-span-3 lg:col-span-4 order-2">
-            <img src="/images/hero-profile-img.png" />
-          </div>
-          {% endif %}
-        </div>
-      </article>
+      {% capture mainContent %}
+        {% if candidates.number %}
+          <div class="flag bg-violet-400 text-white head-alt-base mb-6">Volte č. {{ candidates.number }}</div>
+        {% endif %}
+        <h1 class="head-alt-md md:head-alt-xl">{{ page.title }}</h1>
+      {% endcapture %}
+      {% include hero/advanced.html img=page.img bgImg=imgBgPath mainContent=mainContent subContent=content contentClass="content-block" imgClass="h-32 lg:h-80 lg:m-auto hidden md:block" %}
 
       <div class="container container--default pt-8 lg:py-24">
 

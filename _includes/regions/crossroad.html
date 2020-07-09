@@ -15,21 +15,27 @@
                 {% include contact-line.html href=place.fb target="_blank" icon="ico--facebook" caption=caption class="font-light" %}
               {% endif %}
 
+              {% if place.type and place.type == "local" %}
+                {% assign target = "" %}
+              {% else %}
+                {% assign target = "_blank" %}
+              {% endif %}
+
               {% if place.mail %}
                 {% capture href %}mailto:{{ place.mail }}{% endcapture %}
                 {% include contact-line.html href=href icon="ico--envelope" caption=place.mail class="contact-line--responsive font-light" %}
               {% endif %}
 
               {% if place.programLink %}
-                {% include contact-line.html href=place.programLink target="_blank" icon="ico--book" caption="Program" class="font-light" %}
+                {% include contact-line.html href=place.programLink target=target icon="ico--book" caption="Program" class="font-light" %}
               {% endif %}
 
               {% if place.candidateListLink %}
-                {% include contact-line.html href=place.candidateListLink target="_blank" icon="ico--users" caption="Kandidátka" class="font-light" %}
+                {% include contact-line.html href=place.candidateListLink target=target icon="ico--users" caption="Kandidátka" class="font-light" %}
               {% endif %}
 
               {% if place.candidateListWithProgramLink %}
-                {% include contact-line.html href=place.candidateListWithProgramLink target="_blank" icon="ico--book" caption="Program" class="font-light" %}
+                {% include contact-line.html href=place.candidateListWithProgramLink target=targett icon="ico--book" caption="Program a kandidátka" class="font-light" %}
               {% endif %}
             </div>
             {% if place.note %}

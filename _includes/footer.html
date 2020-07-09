@@ -28,7 +28,8 @@
           <div class="mb-4">
             {% include social-icon-group.html class="space-x-2 text-white pb-4" %}
             {% if site.organization.email %}
-              {% include contact-line.html href=site.organization.email icon="ico--envelope" caption="Dejte nám vědět" %}
+              {% capture href %}mailto:{{ site.organization.email }}{% endcapture %}
+              {% include contact-line.html href=href icon="ico--envelope" caption="Dejte nám vědět" %}
             {% endif %}
           </div>
           <div class="flex flex-col md:flex-row lg:flex-col lg:items-end space-y-2 md:space-y-0 md:space-x-2 lg:space-x-0 lg:space-y-2">
@@ -76,7 +77,7 @@
 
       <section class="bg-black py-4 lg:py-12">
         <div class="container container--default">
-          <div class="footer-contacts flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-4">
+          <div class="grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
             {% if site.data.menu.contact %}
               {% for contact in site.data.menu.contact %}
                 {% assign person = site.people | where_exp:"item","item.uid contains contact.id" | first %}
@@ -90,14 +91,6 @@
                   {% include people/profile-badge.html item=person %}
                 {% endfor %}
               {% endunless %}
-            {% endif %}
-
-            {% if site.organization.email %}
-              <div class="lg:mt-4 xl:mt-0 lg:text-center xl:text-right">
-                <a href="mailto:{{ site.organization.email }}" class="btn btn--white btn--hoveractive btn--fullwidth md:btn--autowidth text-lg btn--to-grey-125">
-                  <div class="btn__body ">Kontakt</div>
-                </a>
-              </div>
             {% endif %}
           </div>
         </div>

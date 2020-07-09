@@ -11,19 +11,7 @@ layout: default
   {% endif %}
 {% endif %}
 
-<aside
-  class="hero {% if imgPath %}hero--image{% endif %} py-16"
-  {% if imgPath %}style="--image-url: url({{ imgPath }}){% endif %}"
->
-  <div class="container container--default">
-    <h1 class="head-alt-md md:head-alt-lg max-w-2xl">
-      {{ page.heroHeadline }}
-    </h1>
-    <h2 class="head-xs mt-2">
-      {{ page.heroDescription }}
-    </h2>
-  </div>
-</aside>
+{% include hero/simple.html headline=page.heroHeadline description=page.heroDescription bgImg=imgPath %}
 
 <div class="container container--default pt-8 lg:pb-16">
   <article>

@@ -103,10 +103,6 @@ organization:
   dataBoxId: b2i4r6j
   transparentAccount: 2100048174/2010
 
-elections:
-  show: true
-  date: "2020-12-10 00:00:00"
-
 # Items listed in contact summary table
 contactSummaryItems:
   - type: organizationEmail

@@ -1,17 +1,11 @@
-<article class="hero py-8 lg:py-16 {{ include.class }}">
-  <div class="container container--default grid {% if include.img %}lg:grid-rows-3 lg:grid-cols-7{% else %}lg:grid-rows-2 lg:grid-cols-1{% endif %} gap-2 items-center">
-    <div class="{% if include.img %}lg:row-span-2 lg:col-span-3{% else %}lg:row-span-1 lg:col-span-1{% endif %} order-1">
-      <h1 class="head-alt-md md:head-alt-xl">{{ include.title }}</h1>
-    </div>
-    <div class="lg:row-span-1 {% if include.img %}lg:col-span-3{% else %}lg:col-span-1{% endif %} order-3">
-      <div class="mt-4 md:mt-8 space-y-4">
-        {% include buttons/icon.html icon="ico--chevron-right" class="btn--hoveractive btn--fullwidth md:btn--autowidth text-lg" cta=include.cta %}
-      </div>
-    </div>
-    {% if include.img %}
-      <div class="lg:row-span-3 lg:col-span-4 order-2">
-        {% asset '{{ include.img }}' magick:resize='900x' alt=include.title %}
-      </div>
-    {% endif %}
-  </div>
-</article>
+{% capture mainContent %}
+<h1 class="head-alt-md md:head-alt-xl">{{ include.title }}</h1>
+{% endcapture %}
+
+{% capture subContent %}
+  {% if include.cta %}
+    {% include buttons/icon.html icon="ico--chevron-right" class="btn--hoveractive btn--fullwidth md:btn--autowidth text-lg" cta=include.cta %}
+  {% endif %}
+{% endcapture %}
+
+{% include hero/advanced.html mainContent=mainContent subContent=subContent img=include.img imgClass="h-32 lg:h-80 lg:m-auto hidden md:block" %}
