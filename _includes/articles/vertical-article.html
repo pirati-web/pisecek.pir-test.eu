@@ -15,7 +15,18 @@
 
     <div class="article-card-cover__details">
       <div class="article-card-sharing">
-        {% comment %} {{> molecules-small-colored-social-icon-group }} {% endcomment %}
+        <div class="social-icon-group">
+          <a
+            href="https://www.facebook.com/sharer/sharer.php?u={{ include.article.url | absolute_url }}"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            class="social-icon social-icon--fill bg-brands-facebook text-white text-sm social-icon--4"
+          ><i class="ico--facebook"></i></a>
+          <a
+            href="https://twitter.com/intent/tweet?text={{ include.article.title }}&url={{ include.article.url | absolute_url }}"
+            onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+            class="social-icon social-icon--fill bg-brands-twitter text-white text-sm social-icon--4"
+          ><i class="ico--twitter"></i></a>
+        </div>
       </div>
 
       <div class="article-card-meta"  class="c-metadata-block-section__item" >
