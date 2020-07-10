@@ -22,7 +22,7 @@
           <a href="{{ include.candidatePage.url|relative_url }}">{% include people/fullname.html person=include.candidatePage %}</a>
         </h1>
         {% if include.candidatePage.mail %}
-          <div class="font-light mb-4">{{ include.candidatePage.mail }}</div>
+          <a href="mailto:{{ include.candidatePage.mail }}" class="block font-light mb-4">{{ include.candidatePage.mail }}</a>
         {% endif %}
         <h2 class="head-allcaps-4xs md:head-allcaps-3xs">{{ include.candidate.profession }}</h2>
       </div>
