@@ -1,7 +1,7 @@
 ---
 date: 2015-03-14
 category: blog
-tags: tag1 tag2
+tags: tag1 tag2 tag3 tag4 tag5
 layout: post
 title: Test nadpisů
 author: Jmeno Prijmeni
