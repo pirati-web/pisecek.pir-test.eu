@@ -1,4 +1,4 @@
-<div class="__js-root">
+<div class="__js-root {{ include.classes }}">
   {% if site.env.GOOGLE_CALENDAR_APIKEY and include.calendarId %}
     <ui-calendar-google-provider v-slot="{ events, onShowMore, hasMore }" :calendar-id="'{{ include.calendarId }}'" :api-key="'{{ site.env.GOOGLE_CALENDAR_APIKEY }}'">
       <ui-calendar-renderer
