@@ -1,5 +1,6 @@
 ---
 layout: page
+title: Připoj se
 article-boxes:
   - title: "Rozdávání Pirátských listů"
     image: /assets/img/pripoj-se/noviny.jpg
@@ -13,7 +14,7 @@ article-boxes:
     url: /aktuality
     description:  >
               Kritizujeme politické trafiky, nevýhodné záměry developerů a další desítky kauz.
-              Chceme moderní město s průhledným hospodařením!  
+              Chceme moderní město s průhledným hospodařením!
 
   - title: Krajské předsednictvo
     image:  /assets/img/pripoj-se/krajske-forum.jpg
@@ -22,16 +23,18 @@ article-boxes:
     description:  >
               Krajské předsednictvo vede sdružení, přijímá nové členy,
               organizuje akce, koordinuje dobrovolníky a hospodaří
-              s penězi. 		
+              s penězi.
 rbar:
   - kodo
+
+contentClass: mb-8 lg:mb-16 content-block
 ---
 
-## Kraské schůze
+## Krajské schůze
 
-**30. 8. Krajská schůze** - příprava na start horké fáze kampaně, fasování nových pirátských listů  
-**20. 9.  Krajská schůze** - 14 dní do voleb, poslední instrukce, hecování se do superintenzivní kontaktní kampaně  
-**11. 10. Povolební schůze** - představování novopečených zastupitelů, hodnocení výsledků voleb 
+**30. 8. Krajská schůze** - příprava na start horké fáze kampaně, fasování nových pirátských listů
+**20. 9.  Krajská schůze** - 14 dní do voleb, poslední instrukce, hecování se do superintenzivní kontaktní kampaně
+**11. 10. Povolební schůze** - představování novopečených zastupitelů, hodnocení výsledků voleb
 
 ## Vyvětste Pirátskou plachtu.
 
@@ -41,7 +44,7 @@ Vyvěste si plachtu s pirátským heslem na plot nebo z okna. Plachty rozdávám
 
 * [Pirátská netiketa](https://redmine.pirati.cz/projects/po/wiki/Pir%C3%A1tsk%C3%A1_netiketa) – základní zásady pro dobrou atmosféru
 
-* [Příručka piráta](https://redmine.pirati.cz/projects/po/wiki0)    
+* [Příručka piráta](https://redmine.pirati.cz/projects/po/wiki0)
 
 * Na první kontakt doporučujeme přijít na **krajskou schůzi** nebo na **Pirátské úterý**, viz [kalendář](kalendar/#praha).
 
@@ -59,9 +62,9 @@ Vyvěste si plachtu s pirátským heslem na plot nebo z okna. Plachty rozdávám
 ## Kalendář akcí
 {% assign kalendar = site.pages | where:"url","/kalendar/" | first %}
 {{kalendar.content}}
-<iframe 
+<iframe
 	src="{{site.calendar.page}}"
-	style="border-width:0" 
-	width="735" height="600" 
+	style="border-width:0"
+	width="100%" height="600"
 	frameborder="0" scrolling="no">
 </iframe>

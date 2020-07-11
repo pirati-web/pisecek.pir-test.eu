@@ -12,11 +12,16 @@
 
 {% if page.profiles.wikipedia or page.profiles.facebook or page.profiles.twitter or page.profiles.github or page.profiles.forum or page.profiles.redmine or page.profiles.web or page.profiles.blog %}
   {% include right-bar/rbar_profiles.html %}
+{% endif %}
+
+{% if page.partyUid %}
   <hr />
+  {% include party.html uid=page.partyUid %}
 {% endif %}
 
 <div class="content-block">
   {% if page.mail or page.mob or page.profiles.report %}
+    <hr />
     <div class="space-y-4">
       {% if page.mob %}
         <div>
@@ -39,35 +44,34 @@
         </div>
       {% endif %}
     </div>
-    <hr />
   {% endif %}
 
   {% if page.asistenti %}
+    <hr />
     <h2>Asistenti</h2>
     <div class="space-y-4 mt-4">
       {% for asistent in page.asistenti %}
         {% include people/profile-badge.html class="badge--condensed" item=asistent description=asistent.position %}
       {% endfor %}
     </div>
-    <hr />
   {% endif %}
 
   {% if page.office %}
+    <hr />
     {% assign kancl = page.office | first %}
-    <h2>{{ kancl.name }}</h2>
-    <p>{{ kancl.address }}</p>
+    <h2>Kancelář</h2>
+    <iframe
+      height="150"
+      frameborder="0"
+      style="border:0; width:100%"
+      src="{% if kancl.mapIframeLink %}{{ kancl.mapIframeLink }}{% else %}https://www.google.com/maps/embed/v1/place?key=AIzaSyCRuL_FU0HdeKCHVNfVJkv2nhNZPr05AJM&q={{ kancl.address | replace: ' ', '+' }}{% endif %}" allowfullscreen>
+    </iframe>
+    <h4>{{ kancl.name }}</h4>
+    <p>{{ kancl.address | | newline_to_br }}</p>
 
     {% if kancl.opening %}
       <h4>Otevírací doba</h4>
       <p>{{ kancl.opening}}</p>
     {% endif %}
-    <iframe
-      height="150"
-      frameborder="0"
-      style="border:0; width:100%"
-      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCRuL_FU0HdeKCHVNfVJkv2nhNZPr05AJM&q={{ kancl.address | replace: ' ', '+' }}" allowfullscreen>
-    </iframe>
   {% endif %}
-  <!-- Mobile divider -->
-  <hr class="block lg:hidden" />
 </div>

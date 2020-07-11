@@ -29,15 +29,8 @@
       <div class="candidate-card__affiliation">
         {% if include.candidate.age %}<div>{{ include.candidate.age }} let</div>{% endif %}
 
-        {% if include.candidate.party %}
-          <div>
-            {% if include.candidate.partyImg %}
-              {% comment %}We expect an SVG format here to make things scalable{% endcomment %}
-              {% capture partyImg %}{{ include.candidate.partyImg | prepend: "/assets/img/" | absolute_url }}{% endcapture %}
-              {% include avatar.html class="w-6 mr-2" alt=include.candidate.party src=partyImg %}
-            {% endif %}
-            <span class="font-bold font-condensed">{{ include.candidate.party }}</span>
-          </div>
+        {% if include.candidate.partyUid %}
+          {% include party.html uid=include.candidate.partyUid %}
         {% endif %}
       </div>
       <div class="card__body candidate-card__social">

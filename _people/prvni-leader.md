@@ -12,6 +12,7 @@ description: mistr světa ve skoku pro něco # zobrazuje se v lide
 profession: knihovník
 img: people/ppp.jpg # zakomentuj radek dokud není fotka
 heroImg: posts/obrazek.u.tohoto.postu.jpg
+partyUid: pirati
 mail:
   - prvni.leader@pirati.cz
 profiles:

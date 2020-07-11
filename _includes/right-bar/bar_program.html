@@ -13,7 +13,7 @@
 
     <ul class="unordered-list unordered-list--linked">
       {% for programSection in programSections %}
-        <li><a {% if page.uid == programSection.uid %}class="font-bold"{% endif %} href="{{ programSection.url | relative_url }}">{{ programSection.title }}</a></li>
+        <li><a class="{% if page.uid == programSection.uid %}font-bold  {% endif %}content-block--nostyle" href="{{ programSection.url | relative_url }}">{{ programSection.title }}</a></li>
       {% endfor %}
     </ul>
     {% unless forloop.last %}

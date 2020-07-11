@@ -93,7 +93,7 @@
             </button>
 
             {% if calendarProvided %}
-              <a href="#" class="btn text-sm max-w-full hidden lg:block" @click="toggleView('calendar')" v-if="events.length > 0">
+              <a href="#" class="btn text-sm max-w-full hidden lg:block" @click="toggleView('calendar')" v-if="events.length > 0" v-cloak>
                 <div class="btn__body bg-grey-800 text-grey-200 flex divide-x">
                   <span class="pr-4">&#123;{events[0].title}&#125;</span>
                   <span class="pl-4">&#123;{events[0].allDay ? 'Celý den' :  events[0].startDateVerbose + ', ' + events[0].startTimeVerbose}&#125;</span>

@@ -141,14 +141,9 @@ layout: default
                     {% include avatar.html class="avatar--sm candidate-table-row__avatar" src=img alt=candidate.name %}
                     <div class="candidate-table-row__name head-heavy-2xs font-bold">{% if candidatePage %}{{ candidatePage.name }}{% else %}{{ candidate.name }}{% endif %}</div>
                     <div class="candidate-table-row__bio head-allcaps-3xs">{% if candidate.age %}{{ candidate.age }} let{% endif %}{% if candidate.age and candidate.profession %}, {{ candidate.profession }}{% endif %}</div>
-                    {% if candidate.party %}
+                    {% if candidate.partyUid %}
                       <div class="candidate-table-row__affiliation">
-                        {% if candidate.partyImg %}
-                          {% comment %}We expect an SVG format here to make things scalable{% endcomment %}
-                          {% capture partyImg %}{{ candidate.partyImg | prepend: "/assets/img/" | absolute_url }}{% endcapture %}
-                          {% include avatar.html class="w-6 mr-2" alt=candidate.party src=partyImg %}
-                        {% endif %}
-                        <span class="font-bold font-condensed">{{ candidate.party }}</span>
+                        {% include party.html uid=candidate.partyUid %}
                       </div>
                     {% endif %}
                   </{% if candidatePage %}a{% else %}div{% endif %}>

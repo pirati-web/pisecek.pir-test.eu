@@ -3,7 +3,7 @@
 </header>
 
 {% if include.content %}
-  <div class="{% if include.contentClass %}{{ include.contentClass }}{% endif %}" itemprop="description">
+  <div class="{{ include.contentClass | default: page.contentClass | default: layout.contentClass }}" itemprop="description">
     {{ include.content }}
   </div>
 {% endif %}

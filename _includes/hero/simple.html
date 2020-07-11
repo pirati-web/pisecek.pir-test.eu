@@ -3,7 +3,7 @@
   {% if include.bgImg %}style="--image-url: url({{ include.bgImg }})"{% endif %}
 >
   <div class="container container--default">
-    <h1 class="head-alt-md md:head-alt-lg max-w-2xl">
+    <h1 class="head-alt-md md:head-alt-lg max-w-2xl {{ include.headlineClass }}">
       {{ include.headline }}
     </h1>
     <h2 class="head-xs mt-2 {{ include.descriptionClass }}">

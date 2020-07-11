@@ -6,123 +6,116 @@ leader:
   uid: prvni.leader
   age: 31
   profession: knihovník
-  party: Piráti
-  partyImg: brand/logo.svg
+  partyUid: pirati
   description: expert na skoky # zobrazuje se v komunalni-volby
 
 head: # čelo kandidátky (bez leadera) / lidé kteří mají fotku a _people/jmeno.md
   - uid: mistni.predseda
     profession: knihovník
     description: expert na skoky
-    party: bez politické příslušnosti
+    partyUid: bezpp
   - uid: jakub.pirat
     profession: knihovník
-    party: Pirátská strana
-    partyImg: brand/logo.svg
+    partyUid: pirati
   - uid: aktivni.priznivec
     age: 63
     profession: zametač
     description: expert přes dětská hřiště
-    party: Evropani.cz
+    partyUid: evropani
   - uid: mistni.predseda
     profession: knihovník
     description: expert na skoky
-    party: bez politické příslušnosti
+    partyUid: bezpp
   - uid: jakub.pirat
     profession: knihovník
-    party: Pirátská strana
-    partyImg: brand/logo.svg
+    partyUid: pirati
+
   - uid: aktivni.priznivec
     age: 63
     profession: zametač
     description: expert přes dětská hřiště
-    party: Evropani.cz
+    partyUid: evropani
   - uid: mistni.predseda
     profession: knihovník
     description: expert na skoky
-    party: bez politické příslušnosti
+    partyUid: bezpp
   - uid: jakub.pirat
     profession: knihovník
-    party: Pirátská strana
+    partyUid: pirati
   - uid: aktivni.priznivec
     age: 63
     profession: zametač
     description: expert přes dětská hřiště
-    party: Evropani.cz
+    partyUid: evropani
   - uid: mistni.predseda
     profession: knihovník
     description: expert na skoky
-    party: bez politické příslušnosti
+    partyUid: bezpp
   - uid: jakub.pirat
     profession: knihovník
-    party: Pirátská strana
-    partyImg: brand/logo.svg
+    partyUid: pirati
 tail: # zbytek kandidatky
       # jedinná povinná položka je name zbytek můžete vynechat
       # věk se uvádí k poslednímu dni voleb
   - name: Mudr. Místní Dkotor
     age: 49
     profession: obvodní lékař
-    party: bez politické příslušnosti
+    partyUid: bezpp
   - name: Tomáš Šťoural
     age: 19
     profession: student
-    party: Piráti
-    partyImg: brand/logo.svg
+    partyUid: pirati
   - uid: mistni.predseda
     profession: knihovník
     description: expert na skoky
-    party: bez politické příslušnosti
+    partyUid: bezpp
   - name: Mudr. Místní Dkotor
     profession: obvodní lékař
-    party: bez politické příslušnosti
+    partyUid: bezpp
   - name: Tomáš Šťoural
     age: 19
     profession: student
-    party: Piráti
-    partyImg: brand/logo.svg
+    partyUid: pirati
   - uid: mistni.predseda
     profession: knihovník
     description: expert na skoky
-    party: bez politické příslušnosti
+    partyUid: bezpp
   - name: Mudr. Místní Dkotor
     age: 49
     profession: obvodní lékař
-    party: bez politické příslušnosti
+    partyUid: bezpp
   - name: Tomáš Šťoural
     age: 19
     profession: student
-    party: Piráti
-    partyImg: brand/logo.svg
+    partyUid: pirati
   - uid: mistni.predseda
     profession: knihovník
     description: expert na skoky
-    party: bez politické příslušnosti
+    partyUid: bezpp
   - name: Mudr. Místní Dkotor
     age: 49
     profession: obvodní lékař
-    party: bez politické příslušnosti
+    partyUid: bezpp
   - name: Tomáš Šťoural
     age: 19
     profession: student
-    party: Piráti
-    partyImg: brand/logo.svg
+    partyUid: pirati
   - uid: mistni.predseda
     profession: knihovník
     description: expert na skoky
-    party: bez politické příslušnosti
+    partyUid: bezpp
   - name: Mudr. Místní Dkotor
     age: 49
     profession: obvodní lékař
-    party: bez politické příslušnosti
+    partyUid: bezpp
   - name: Tomáš Šťoural
     age: 19
     profession: student
-    party: Piráti
+    partyUid: pirati
   - uid: mistni.predseda
     profession: knihovník
     description: expert na skoky
-    party: bez politické příslušnosti
+    partyUid: bezpp
 note: # poznámka pod kanidátku
     Primárky stále běží. Zbytek kandidátky zveřejníme, jakmile doběhnou.
 ---
