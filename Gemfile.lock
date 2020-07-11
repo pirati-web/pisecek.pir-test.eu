@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jekyll-theme-pirati (8.0.0.pre.alpha6)
+    jekyll-theme-pirati (8.0.0.pre.beta1)
       jekyll (~> 3.6)
 
 GEM
