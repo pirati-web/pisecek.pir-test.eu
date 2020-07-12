@@ -17,7 +17,7 @@
           <div v-if="show || isLgScreenSize" class="navbar__external navbar__section navbar__section--expandable container-padding--zero lg:container-padding--auto lg:flex lg:space-x-8 lg:pb-2">
             <div class="text-grey-200 text-sm lg:space-x-8 leading-loose lg:leading-normal">
               {% for item in site.data.menu.top %}
-                {% include contact-line.html href=item.url icon=item.icon caption=item.link class="lg:inline-block" target="_blank" %}
+                {% include contact-line.html href=item.url icon=item.icon caption=item.link class="block lg:inline-block" target="_blank" %}
               {% endfor %}
             </div>
             {% include social-icon-group.html class="space-x-2 text-grey-200 py-4 lg:py-0" %}

@@ -2,4 +2,7 @@
 # Dev Configuration file
 # For stuff that helps locally only!
 # helpful config settings: exclude
-styleguide_base_url: 'http://localhost:3000/'
+
+# Uncomment if you run your styleguide locally
+#styleguide_base_url: 'http://localhost:3000/'
+styleguide_base_url: https://styleguide.pir-test.eu/latest

@@ -16,6 +16,9 @@ url: "https://pirati.cz" # the base hostname & protocol for your site
 # Build settings
 markdown: kramdown
 
+# Styleguide base URL, see the list of available options here: https://styleguide.pir-test.eu/
+styleguide_base_url: https://styleguide.pir-test.eu/1.x.x
+
 plugins:
   - jekyll-paginate
   - jekyll-feed
