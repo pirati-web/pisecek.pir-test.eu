@@ -37,7 +37,11 @@
         {% if include.candidate.description %}
           <p class="font-light text-sm leading-snug italic mb-4 hidden md:block">{{ include.candidate.description }}</p>
         {% endif %}
-        {% comment %} {{> molecules-basic-social-icon-group }} {% endcomment %}
+        {% if include.candidatePage %}
+        <div class="social-icon-group space-x-2">
+          {% include social-icons.html profiles=include.candidatePage.profiles %}
+        </div>
+        {% endif %}
       </div>
     </div>
   </div>
