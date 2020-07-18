@@ -24,7 +24,7 @@ layout: default
   include hero/simple.html
   headline=personName
   description=page.profession
-  headlineClass="text-center lg:text-left mx-auto"
+  headlineClass="text-center lg:text-left mx-auto lg:mx-0"
   descriptionClass="max-w-xl mx-auto text-center lg:text-left"
   heroSpacing="pt-16 pb-24 lg:pt-32 pb-24"
   class="candidate-detail__hero"
@@ -41,8 +41,6 @@ layout: default
       </section>
       <section class="lg:w-2/5 xl:w-1/3 pt-8 lg:pt-0 order-first lg:order-last candidate-detail__sidebar">
         {% include right-bar/rbar.html %}
-        <!-- Mobile divider -->
-        <hr class="block lg:hidden" />
       </section>
     </div>
   </main>
