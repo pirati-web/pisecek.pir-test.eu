@@ -83,7 +83,7 @@ layout: default
           {% assign leaderCandidate = site.people | where: "uid", candidates.leader.uid | first %}
 
           <div class="candidate-card-list grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {% include candidate-badge.html candidate=candidates.leader candidatePage=leaderCandidate rank=1 wrapperClass="candidate-card__wrapper sm:candidate-card-list__item-wrapper md:candidate-card-list__item-wrapper--border" %}
+            {% include candidate-badge.html candidate=candidates.leader candidatePage=leaderCandidate rank=1 wrapperClass="candidate-card__wrapper sm:candidate-card-list__item-wrapper md:candidate-card-list__item-wrapper--border" hideSocialProfiles=page.hideCandidateSocialProfiles %}
 
             {% if candidates.head.size %}
                 {% for candidate in candidates.head %}
@@ -140,7 +140,7 @@ layout: default
                     <div class="candidate-table-row__position head-allcaps-heavy-2xs text-right">{{ candidateRank }}</div>
                     {% include avatar.html class="avatar--sm candidate-table-row__avatar" src=img alt=candidate.name %}
                     <div class="candidate-table-row__name head-heavy-2xs font-bold">{% if candidatePage %}{% include people/fullname.html person=candidatePage plain=true %}{% else %}{{ candidate.name }}{% endif %}</div>
-                    <div class="candidate-table-row__bio head-allcaps-3xs">{% if candidate.age %}{{ candidate.age }} let{% endif %}{% if candidate.age and candidate.profession %}, {{ candidate.profession }}{% endif %}</div>
+                    <div class="candidate-table-row__bio head-allcaps-3xs">{% if candidate.age %}{{ candidate.age }} let{% endif %}{% if candidate.profession %}{% if candidate.age %}, {% endif %}{{ candidate.profession }}{% endif %}{% if candidate.city %}{% if candidate.profession or candidate.age %}, {% endif %}{{ candidate.city }}{% endif %}</div>
                     {% if candidate.partyUid %}
                       <div class="candidate-table-row__affiliation">
                         {% include party.html uid=candidate.partyUid %}

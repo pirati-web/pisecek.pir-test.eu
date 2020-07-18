@@ -5,6 +5,7 @@ img: posts/obrazek.u.tohoto.postu.jpg
 campaignGroupUid: volby-2018
 campaignCategoryUid: senat
 candidateListUid: senat
+hideCandidateSocialProfiles: true
 ---
 
 Uděláme z Prahy nejtransparentnější město v Česku. Dnes má Praha problém hlavně

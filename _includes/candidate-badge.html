@@ -25,9 +25,16 @@
           <a href="mailto:{{ include.candidatePage.mail }}" class="block font-light mb-4">{{ include.candidatePage.mail }}</a>
         {% endif %}
         <h2 class="head-allcaps-4xs md:head-allcaps-3xs">{{ include.candidate.profession }}</h2>
+        {% if include.candidate.city %}
+          <h2 class="head-allcaps-4xs md:head-allcaps-3xs">
+            {{ include.candidate.city }}
+          </h2>
+        {% endif %}
       </div>
       <div class="candidate-card__affiliation">
-        {% if include.candidate.age %}<div>{{ include.candidate.age }} let</div>{% endif %}
+        {% if include.candidate.age %}
+          <div>{{ include.candidate.age }} let</div>
+        {% endif %}
 
         {% if include.candidate.partyUid %}
           {% include party.html uid=include.candidate.partyUid %}
@@ -37,11 +44,13 @@
         {% if include.candidate.description %}
           <p class="font-light text-sm leading-snug italic mb-4 hidden md:block">{{ include.candidate.description }}</p>
         {% endif %}
-        {% if include.candidatePage %}
-        <div class="social-icon-group space-x-2">
-          {% include social-icons.html profiles=include.candidatePage.profiles %}
-        </div>
-        {% endif %}
+        {% unless include.hideSocialProfiles %}
+          {% if include.candidatePage %}
+          <div class="social-icon-group space-x-2">
+            {% include social-icons.html profiles=include.candidatePage.profiles %}
+          </div>
+          {% endif %}
+        {% endunless %}
       </div>
     </div>
   </div>
