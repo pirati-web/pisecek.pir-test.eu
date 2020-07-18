@@ -13,7 +13,7 @@ description: kandidát do senátu # zobrazuje se v lide
 img: people/ppp.jpg # zakomentuj radek dokud není fotka
 asistenti:
   - name: Mgr. Věra Marušiaková
-    position: Asitentka
+    position: Asistentka
     mail: vera.marusiakova@pirati.cz
 mail:
   - aktivni.priznivec@pirati.cz
