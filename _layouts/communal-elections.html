@@ -101,7 +101,7 @@ layout: default
                     {% capture classes %}candidate-card__wrapper sm:candidate-card-list__item-wrapper sm:candidate-card-list__item-wrapper--noborder md:candidate-card-list__item-wrapper--border lg:candidate-card-list__item-wrapper--noborder{% endcapture %}
                   {% endif %}
 
-                  {% include candidate-badge.html candidate=candidate candidatePage=candidatePage leader=false rank=candidateRank wrapperClass=classes %}
+                  {% include candidate-badge.html candidate=candidate candidatePage=candidatePage leader=false rank=candidateRank wrapperClass=classes hideSocialProfiles=page.hideCandidateSocialProfiles %}
 
                 {% endfor %}
             {% endif %}
