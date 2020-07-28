@@ -5,25 +5,29 @@ uid: radnice
 leader:
   uid: prvni.leader
   age: 31
-  profession: knihovník
+  name: Bc. Daniel Lebduška
+  profession: výkonný ředitel společnosti, zastupitel města Chrudim, domácí sládek
   partyUid: pirati
+  city: Chrudim
   description: expert na skoky # zobrazuje se v komunalni-volby
 
 head: # čelo kandidátky (bez leadera) / lidé kteří mají fotku a _people/jmeno.md
   - uid: mistni.predseda
-    profession: knihovník
+    name: Ing. Filip Mezera, Ph.D.
+    profession: datový analytik, zastupitel města Sezemice, trenér fotbalové přípravky
     description: expert na skoky
     partyUid: bezpp
-    city: Zlín
+    city: Sezemice
   - uid: jakub.pirat
-    profession: knihovník
+    profession: systémový administrátor, zastupitel obce Radhošť, drobný chovatel
     partyUid: pirati
+    city: Radhošť
   - uid: aktivni.priznivec
     age: 63
-    profession: zametač
+    profession: středoškolská učitelka matematiky, zastupitelka města Svitavy
+    city: Svitavy
     description: expert přes dětská hřiště
     partyUid: evropani
-    city: Valašské Meziříčí
   - uid: mistni.predseda
     profession: knihovník
     description: expert na skoky
