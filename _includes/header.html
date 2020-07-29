@@ -44,7 +44,7 @@
             {% endif %}
           </div>
           <div v-if="show || isLgScreenSize" class="navbar__actions navbar__section navbar__section--expandable container-padding--zero lg:container-padding--auto self-start flex flex-col sm:flex-row lg:flex-col sm:space-x-4 space-y-2 sm:space-y-0 lg:space-y-2 xl:flex-row xl:space-x-2 xl:space-y-0">
-            <a href="https://dary.pirati.cz" rel="noopener noreferrer" target="_blank" class="btn btn--icon btn--cyan-200 btn--hoveractive btn--condensed btn--fullwidth md:btn--autowidth lg:text-sm xl:text-base">
+            <a href="{{ site.organization.donateLink | default: 'https://dary.pirati.cz' }}" rel="noopener noreferrer" target="_blank" class="btn btn--icon btn--cyan-200 btn--hoveractive btn--condensed btn--fullwidth md:btn--autowidth lg:text-sm xl:text-base">
               <div class="btn__body-wrap">
                 <div class="btn__body ">Přispěj</div>
                 <div class="btn__icon ">
@@ -52,7 +52,7 @@
                 </div>
               </div>
             </a>
-            <a href="https://nalodeni.pirati.cz" rel="noopener noreferrer" target="_blank" class="btn btn--icon btn--blue-300 btn--hoveractive btn--condensed btn--fullwidth md:btn--autowidth lg:text-sm xl:text-base">
+            <a href="{{ site.organization.onboardingLink | default: 'https://nalodeni.pirati.cz' }}" rel="noopener noreferrer" target="_blank" class="btn btn--icon btn--blue-300 btn--hoveractive btn--condensed btn--fullwidth md:btn--autowidth lg:text-sm xl:text-base">
               <div class="btn__body-wrap">
                 <div class="btn__body ">Naloď se</div>
                 <div class="btn__icon ">
