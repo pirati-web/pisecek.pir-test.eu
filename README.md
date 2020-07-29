@@ -106,6 +106,12 @@ To use it fully, provide `heroImg` in the person markdown file.
 
 These will show as the [emphasized variant in black](https://styleguide.pir-test.eu/latest/?p=viewall-molecules-article-card).
 
+#### Organizations can personalise their onboard and donate links in header and footer
+
+Set `organization.donateLink` (defaults to dary.pirati.cz) and
+`organization.onboardingLink` (defaults to nalodeni.pirati.cz) in the Jekyll
+config.
+
 
 ### Backwards incompatible changes
 
