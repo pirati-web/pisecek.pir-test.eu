@@ -77,7 +77,7 @@ tail: # zbytek kandidatky
     partyUid: pirati
     city: Valašské Meziříčí
   - uid: mistni.predseda
-    profession: knihovník
+    profession: OSVČ
     description: expert na skoky
     partyUid: bezpp
     city: Valašské Meziříčí

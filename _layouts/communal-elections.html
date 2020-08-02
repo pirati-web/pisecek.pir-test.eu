@@ -17,7 +17,7 @@ layout: default
 
 
 <div class="__js-root">
-  <ui-view-provider inline-template :initial="{candidates: true, program: false}" v-slot="{ isCurrentView, toggleView }">
+  <ui-view-provider inline-template :initial="{kandidati: true, program: false}" :sync-location="true" location-param="pohled" v-slot="{ isCurrentView, showView }">
     <main>
       {% comment %} Support for customized elections header content. {% endcomment %}
       {% if page.customizeHeader %}
@@ -30,8 +30,8 @@ layout: default
         {% if programCategories.size > 0 %}
           <div class="text-center">
             <div class="switch">
-              <a @click="toggleView('candidates')" class="switch__item" :class="{'switch__item--active': isCurrentView('candidates')}">Kandidáti</a>
-              <a @click="toggleView('program')" class="switch__item" :class="{'switch__item--active': isCurrentView('program')}">Program</a>
+              <a @click="showView('kandidati')" class="switch__item" :class="{'switch__item--active': isCurrentView('kandidati')}">Kandidáti</a>
+              <a @click="showView('program')" class="switch__item" :class="{'switch__item--active': isCurrentView('program')}">Program</a>
             </div>
           </div>
 
@@ -67,7 +67,7 @@ layout: default
           </template>
         {% endif %}
 
-        <template v-if="isCurrentView('candidates')">
+        <template v-if="isCurrentView('kandidati')">
           <h1 class="head-alt-md text-center py-8 lg:pt-24 lg:pb-8">{{ candidates.title }}</h1>
 
           {% assign leaderCandidate = site.people | where: "uid", candidates.leader.uid | first %}
