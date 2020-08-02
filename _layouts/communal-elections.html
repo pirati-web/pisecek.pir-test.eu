@@ -15,28 +15,18 @@ layout: default
   {% endif %}
 {% endif %}
 
-{% if page.heroBgImg %}
-  {% if site.mediaStorage %}
-      {% capture imgBgPath %}https://a.pirati.cz/{{ site.mediaStorage }}/img/{{ page.heroBgImg }}{% endcapture %}
-  {% else %}
-    {% capture imgBgPath %}{% asset '{{ page.heroBgImg }}' @path %}{% endcapture %}
-    {% assign imgBgPath = imgBgPath | absolute_url %}
-  {% endif %}
-{% endif %}
 
 <div class="__js-root">
   <ui-view-provider inline-template :initial="{candidates: true, program: false}" v-slot="{ isCurrentView, toggleView }">
     <main>
-      {% capture mainContent %}
-        {% if candidates.number %}
-          <div class="flag bg-violet-400 text-white head-alt-base mb-6">Volte č. {{ candidates.number }}</div>
-        {% endif %}
-        <h1 class="head-alt-md md:head-alt-xl">{{ page.title }}</h1>
-      {% endcapture %}
-      {% include hero/advanced.html img=page.img bgImg=imgBgPath mainContent=mainContent subContent=content contentClass="content-block" imgClass="h-32 lg:h-80 lg:m-auto hidden md:block" %}
+      {% comment %} Support for customized elections header content. {% endcomment %}
+      {% if page.customizeHeader %}
+        {{ content }}
+      {% else %}
+        {% include elections-header.html img=page.img bgImg=page.heroBgImg subContent=content candidateListNumber=candidates.number %}
+      {% endif %}
 
       <div class="container container--default pt-8 {% unless group.subLinks %}pb-8{% endunless %} lg:py-24">
-
         {% if programCategories.size > 0 %}
           <div class="text-center">
             <div class="switch">
@@ -102,7 +92,6 @@ layout: default
                   {% endif %}
 
                   {% include candidate-badge.html candidate=candidate candidatePage=candidatePage leader=false rank=candidateRank wrapperClass=classes hideSocialProfiles=page.hideCandidateSocialProfiles %}
-
                 {% endfor %}
             {% endif %}
           </div>
